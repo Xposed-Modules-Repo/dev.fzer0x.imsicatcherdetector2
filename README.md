@@ -1,51 +1,67 @@
-Sentry Radio 📡
-Sentry Radio is a professional-grade Android forensic tool designed to detect, analyze, and map cellular network anomalies, including potential IMSI Catchers (Stingrays), cell site simulators, and suspicious network downgrades.
-Built for security researchers and privacy-conscious users, it provides deep insights into the radio stack, monitoring both SIM slots in real-time.
+# 📡 Sentry Radio
 
-🚀 Key Features
-🛡️ Real-time Threat Detection: Monitors for encryption deactivation, silent SMS, and suspicious cell handovers.
-📊 Advanced Radio Metrics: Tracks PCI, EARFCN, Signal Strength (RSSI/RSRP), Timing Advance, and Neighboring cells.
-🌐 Forensic Mapping: Visualize detected cell towers and your movement on an offline-capable map using OSMDroid.
-📡 Dual SIM Support: Full monitoring for multi-slot devices.
-🔍 Database Verification: Cross-references cell data with OpenCellID, Unwired Labs, and BeaconDB to identify “fake” towers.
-🛠️ Root-Powered Monitoring: Utilizes root access to sniff the radio logcat and execute low-level telephony dumps.
-💾 PCAP Export: Export radio events to GSMTAP-compatible PCAP files for further analysis in Wireshark.
+> **Sentry Radio** is a **professional-grade Android forensic platform** for detecting, analyzing, and mapping cellular network threats — including **IMSI Catchers (Stingrays)**, **fake base stations**, and **covert downgrade attacks**.  
+Built for **security researchers, journalists, and privacy-critical users**, it provides deep, real-time visibility into the **cellular radio stack** across **both SIM slots**.
 
-🛠️ Requirements
-Android 10 (API 29) or higher.
-Root Access: Required for deep radio logcat monitoring and low-level diagnostic data.
-(Optional) Xposed/LSPosed: For enhanced API hooking and stealth.
+---
 
-📥 Installation
-Clone the repository:
-git clone https://github.com/fzer0x/SentryRadio.git 
-Open the project in Android Studio.
-Build and install the APK on your rooted device.
-Grant Root/Superuser permissions when prompted.
+# 🚀 Core Capabilities
 
-⚙️ Configuration
-To enable live database verification, add your API keys in the app settings:
-OpenCellID API Key (https://opencellid.org/)
-Unwired Labs Token (https://unwiredlabs.com/)
+## 🛡️ Real-Time Threat Detection
+- Detects **ciphering deactivation (A5/0)**
+- Flags **silent SMS**
+- Identifies **rogue cell handovers**
+- Detects **suspicious downgrades (LTE → 2G)**
 
-🛡️ Security Analysis Layers
-Sentry Radio analyzes several layers of the cellular protocol:
-Physical Layer: Unrealistic signal jumps or timing advance values.
-Protocol Layer: RRC state transitions and Location Update Rejects.
-Security Layer: Monitoring for Ciphering indicator (A5/0) and silent paging.
-Baseband Layer: Fingerprinting of known vulnerable modem firmware.
+## 📊 Advanced Radio Telemetry
+- PCI, EARFCN  
+- RSSI, RSRP, RSRQ  
+- Timing Advance  
+- Neighboring cell topology  
 
-🤝 Contributing
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
-Fork the Project
-Create your Feature Branch (git checkout -b feature/AmazingFeature)
-Commit your Changes (git commit -m 'Add some AmazingFeature')
-Push to the Branch (git push origin feature/AmazingFeature)
-Open a Pull Request
+## 🌐 Forensic Mapping
+- Offline-capable **OSMDroid map**
+- Live tracking of:
+  - Cell towers
+  - Movement paths
+  - Anomaly locations
 
-⚖️ License
-Distributed under the GNU GPL v3 License. See LICENSE for more information.
+## 📡 Dual-SIM Surveillance
+- Independent monitoring of **both modems**
+- Detects asymmetric attacks targeting only one SIM
 
-⚠️ Disclaimer
-This tool is for educational and research purposes only. Monitoring cellular networks may be subject to legal restrictions in some jurisdictions. The developer assumes no liability for misuse.
-Developed with ❤️ by fzer0x (https://github.com/fzer0x)
+## 🔍 Tower Authenticity Verification
+Cross-checks observed cells against:
+- **OpenCellID**
+- **Unwired Labs**
+- **BeaconDB**
+
+Flags **ghost towers** and **cell site simulators**
+
+## 🛠️ Root-Level Telemetry
+- Baseband logcat sniffing
+- Telephony service dumps
+- RIL message inspection
+- Firmware fingerprinting
+
+## 💾 PCAP Export
+- Exports **GSMTAP-compatible PCAP**
+- Works with **Wireshark, tshark, and forensic toolchains**
+
+---
+
+# 🛠️ System Requirements
+
+| Component | Requirement |
+|--------|------------|
+| OS | Android 10+ (API 29+) |
+| Root | **Required** |
+| Xposed / LSPosed | Optional |
+| Device | Qualcomm-based phones recommended |
+
+---
+
+# 📥 Installation
+
+```bash
+git clone https://github.com/fzer0x/SentryRadio.git
