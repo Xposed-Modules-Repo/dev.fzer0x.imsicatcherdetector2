@@ -53,7 +53,7 @@ Flags **ghost towers** and **cell site simulators**
 # 🛠️ System Requirements
 
 | Component | Requirement |
-|--------|------------|
+|----------|------------|
 | OS | Android 10+ (API 29+) |
 | Root | **Required** |
 | Xposed / LSPosed | Optional |
@@ -63,5 +63,89 @@ Flags **ghost towers** and **cell site simulators**
 
 # 📥 Installation
 
-```bash
 git clone https://github.com/fzer0x/SentryRadio.git
+
+1. Open in **Android Studio**  
+2. Build the APK  
+3. Install on a **rooted device**  
+4. Grant **Superuser** permissions  
+
+---
+
+# ⚙️ Configuration
+
+To enable **live cell verification**, add API keys in **App Settings**:
+
+| Service | URL |
+|--------|-----|
+| OpenCellID | https://opencellid.org |
+| Unwired Labs | https://unwiredlabs.com |
+
+These allow Sentry Radio to detect:
+- Real carrier towers  
+- Rogue IMSI catchers  
+- Cell site simulators  
+
+---
+
+# 🛡️ Security Analysis Engine
+
+Sentry Radio correlates anomalies across multiple radio layers:
+
+## 📶 Physical Layer
+- Impossible signal jumps  
+- Invalid timing advance  
+- Cell teleportation  
+
+## 📡 Protocol Layer
+- RRC state abuse  
+- Location Update Rejects  
+- Attach failures  
+- Paging manipulation  
+
+## 🔐 Security Layer
+- Ciphering disabled (A5/0)  
+- Fake encryption flags  
+- Silent paging  
+
+## 🧠 Baseband Layer
+- Modem firmware fingerprinting  
+- Vulnerable chipset detection  
+- Rogue network profiling  
+
+---
+
+# 🤝 Contributing
+
+We welcome all contributions.
+
+git checkout -b feature/AmazingFeature  
+git commit -m "Add AmazingFeature"  
+git push origin feature/AmazingFeature  
+
+Then open a **Pull Request**
+
+---
+
+# ⚖️ License
+
+Distributed under the **GNU GPL v3 License**  
+See `LICENSE` for details.
+
+---
+
+# ⚠️ Legal Disclaimer
+
+This software is for **research, journalism, and defensive security**.
+
+Monitoring cellular networks may be restricted in some countries.  
+You are responsible for compliance with local law.
+
+The author assumes **no liability** for misuse.
+
+---
+
+# ❤️ Credits
+
+Developed by **fzer0x**  
+https://github.com/fzer0x
