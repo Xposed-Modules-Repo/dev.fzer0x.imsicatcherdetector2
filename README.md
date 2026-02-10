@@ -7,6 +7,8 @@ Built for security researchers and privacy-conscious users, it provides deep ins
 **Version 0.4.0 - Enhanced System Hardening with Advanced Panic Mode, Recovery Controls, and Improved Update Management.**
 
 ---
+⚠️Before the new security features can be used, it is important to update the KSU/Magisk module in Settings!
+---
 
 ## 🚀 Key Features
 
@@ -236,3 +238,4 @@ Distributed under the GNU GPL v3 License. See `LICENSE` for more information.
 *This tool is for educational and research purposes only. Monitoring cellular networks may be subject to legal restrictions in some jurisdictions. The developer assumes no liability for misuse.*
 
 **Developed with ❤️ by [fzer0x](https://github.com/fzer0x)**
+
