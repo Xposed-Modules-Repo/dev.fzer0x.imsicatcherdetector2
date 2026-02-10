@@ -4,14 +4,18 @@
 
 Built for security researchers and privacy-conscious users, it provides deep insights into the radio stack, monitoring both SIM slots in real-time.
 
-**Version 0.3.0-beta - Now with dynamic CVE intelligence and system-level hardening via Magisk/KSU.**
+**Version 0.4.0 - Enhanced System Hardening with Advanced Panic Mode, Recovery Controls, and Improved Update Management.**
 
 ---
 
 ## 🚀 Key Features
 
 - **🛡️ Dynamic CVE Intelligence:** Fetches real-time modem vulnerabilities from the NIST NVD API, replacing the static, hardcoded list.
-- **🛠️ System-Level Hardening (Magisk/KSU):** Optional module enforces secure radio parameters directly on the baseband level.
+- **🛠️ System-Level Hardening (Magisk/KSU):** Optional module enforces secure radio parameters directly on the baseband level with automatic reboot detection.
+- **⚡ Advanced Panic Mode:** Full system lockdown with network isolation and hardware radio disable for emergency situations.
+- **🔄 Recovery Controls:** Automated recovery procedures and panic validation for post-incident analysis.
+- **📱 App Update Management:** Automatic detection and notification of app updates via GitHub releases with integrated overlay dialog.
+- **🔄 Reboot Management:** Intelligent reboot detection and overlay prompts after KSU/Magisk module installation or updates.
 - **🛡️ Real-time Threat Detection:** Monitors for encryption deactivation, silent SMS, and suspicious cell handovers.
 - **🚨 Full-screen Overlay Alarms:** Critical alerts now appear over all apps and on the lock screen for immediate notification.
 - **📊 Advanced Radio Metrics:** Tracks PCI, EARFCN, Signal Strength (RSSI/RSRP), Timing Advance, and Neighboring cells.
@@ -52,17 +56,20 @@ Built for security researchers and privacy-conscious users, it provides deep ins
 
 Add your API keys in the app settings (now encrypted in Keystore):
 - [OpenCellID API Key](https://opencellid.org/)
-- [Unwired Labs Token](https://unwiredlabs.com/)
 - BeaconDB (API-Keyless)
 
 ---
 
-## 🛡️ Security (v0.3.0)
+## 🛡️ Security (v0.4.0)
 
-Sentry Radio now includes better security hardening:
+Sentry Radio now includes enhanced security hardening with advanced emergency controls:
 
 - **Dynamic CVE Scanning:** Live vulnerability checks against the NIST NVD database.
-- **System-Level Hardening Module:** An optional Magisk/KSU module provides deep system integration to enforce radio security policies.
+- **Advanced Panic Mode:** Full system lockdown with hardware radio disable and network isolation.
+- **Recovery Controls:** Automated recovery procedures with panic validation and forensic analysis.
+- **System-Level Hardening Module:** An optional Magisk/KSU module provides deep system integration to enforce radio security policies with intelligent reboot detection.
+- **App Update Management:** Automatic detection of app updates via GitHub API with secure overlay notifications.
+- **Reboot Management:** Intelligent detection of KSU/Magisk module installations with automatic reboot prompts and system state validation.
 - **API Key Encryption:** AES-256-GCM encryption in Android Keystore
 - **Certificate Pinning:** Public key pinning prevents MITM attacks on all APIs
 - **Input Validation:** All data validated before processing
@@ -100,8 +107,11 @@ Sentry Radio features a comprehensive tabbed interface:
 ### 4. **Security Tab** - Active Defense Controls
 - **Block GSM Registrations** - Prevent 2G/GSM network downgrades.
 - **Reject A5/0 Cipher** - Block unencrypted connections.
+- **Advanced Panic Mode** - Full system lockdown with hardware radio disable.
+- **Recovery Controls** - Automated recovery and panic validation procedures.
 - **Threats Blocked Dashboard** - Real-time statistics of blocked attacks.
 - **Blocking Events Log** - Full history of security actions taken.
+- **Reboot Management** - Test and manage reboot dialogs for KSU/Magisk module installations.
 
 ### 5. **Analytics Tab** - Advanced Threat Analysis
 - **Threat Summary** - Counts by type (signal, baseband, RRC, handover).
@@ -114,6 +124,7 @@ Sentry Radio features a comprehensive tabbed interface:
 - **Database Settings:** API keys for OpenCellID, Unwired Labs, BeaconDB.
 - **Detection Sensitivity:** Slider to adjust threat detection threshold.
 - **Logging Options & Alarm Control.**
+- **App Update Notifications:** Automatic detection and overlay notifications for new releases.
 
 ---
 
@@ -141,7 +152,49 @@ Distributed under the GNU GPL v3 License. See `LICENSE` for more information.
 
 ## 📝 Changelog
 
-**v0.3.0-beta** (Current Release)
+**v0.4.0** (Current Release)
+- **Advanced Panic Mode & Recovery System:**
+  - Implemented Extended Panic Mode with full system lockdown and hardware radio disable.
+  - Added automated recovery procedures with panic validation for post-incident analysis.
+  - Enhanced panic controls with hardware shutdown commands and validation feedback.
+  - Persistent panic state management across device reboots with automatic restoration.
+  - Multi-layer network isolation using Android APIs, iptables, and hardware-level controls.
+- **Improved Hardening Module Integration:**
+  - Updated Sentry Radio Hardening Module to v0.4.0 with enhanced system integration.
+  - Improved command execution reliability with fallback path handling for all operations.
+  - Added comprehensive recovery and validation commands with enhanced error handling.
+  - Enhanced boot service with automatic panic state restoration and symlink management.
+  - Improved hardware radio control with multiple reset methods and service management.
+- **App Update Management System:**
+  - Implemented automatic app update detection via GitHub API integration.
+  - Added secure overlay notifications for new releases with version comparison.
+  - Enhanced version parsing to support GitHub's "versionCode-versionName" format.
+  - Integrated update manager with callback system for real-time update notifications.
+  - Added automatic module version checking and update availability indicators.
+- **Enhanced Security Controls:**
+  - Improved root command execution with better error handling and fallback mechanisms.
+  - Added comprehensive logging for panic and recovery operations with detailed status reporting.
+  - Enhanced system integrity monitoring with detailed telemetry and validation procedures.
+  - Implemented persistent configuration storage for panic states and security settings.
+  - Added hardware-level radio controls with Qualcomm-specific interface support.
+- **UI/UX Improvements:**
+  - Updated Security Tab with new panic, recovery management controls.
+  - Enhanced Settings Tab with app update notification preferences and module management.
+  - Improved error messaging and user feedback throughout the application.
+  - Added real-time validation feedback and status indicators for all security operations.
+  - Streamlined button layout with improved accessibility and visual hierarchy.
+- **Network & Connectivity Enhancements:**
+  - Advanced network isolation with multiple fallback mechanisms for maximum compatibility.
+  - Enhanced mobile data recovery with forced reconnection procedures and service restart.
+  - Improved WiFi management with automated enable/disable sequences and state validation.
+  - Added comprehensive network interface monitoring and control across all radio technologies.
+- **System Resilience Features:**
+  - Automatic service recovery and restart capabilities for telephony and radio services.
+  - Enhanced error recovery with multiple fallback strategies for different device configurations.
+  - Improved system state validation with comprehensive health checks and status reporting.
+  - Added forensic data collection and analysis capabilities for incident investigation.
+
+**v0.3.0-beta**
 - **Deep System Hardening (Magisk/KSU Module):**
   - Introduced the Sentry Radio Hardening Module for Magisk and KernelSU.
   - Enforces secure modem parameters at the system level (e.g., disables insecure network fallbacks).
