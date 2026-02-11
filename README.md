@@ -4,10 +4,6 @@
 
 Built for security researchers and privacy-conscious users, it provides deep insights into the radio stack, monitoring both SIM slots in real-time.
 
-**Version 0.4.0 - Enhanced System Hardening with Advanced Panic Mode, Recovery Controls, and Improved Update Management.**
-
----
-⚠️Before the new security features can be used, it is important to update the KSU/Magisk module in Settings!
 ---
 
 ## 🚀 Key Features
@@ -56,8 +52,8 @@ Built for security researchers and privacy-conscious users, it provides deep ins
 
 ## ⚙️ Configuration
 
-Add your API keys in the app settings (now encrypted in Keystore):
-- [OpenCellID API Key](https://opencellid.org/)
+Add your API key in the app settings (now encrypted in Keystore):
+- [Free][OpenCellID API Key](https://opencellid.org/)
 - BeaconDB (API-Keyless)
 
 ---
@@ -153,6 +149,23 @@ Distributed under the GNU GPL v3 License. See `LICENSE` for more information.
 ---
 
 ## 📝 Changelog
+**v0.4.5**
+- **Enhanced Chipset Recognition System:**
+    - Added comprehensive codename-to-technical-name mapping for all major chipset families.
+- **Optimized CVE Database System:**
+    - Added intelligent keyword generation based on device chipset (Tensor, Snapdragon, MediaTek, Exynos, UNISOC).
+    - Enhanced filtering for chipset-relevant vulnerabilities only.
+- **Improved Performance:**
+    - Faster loading times with targeted vulnerability fetching.
+    - Better scalability for multiple users with device-specific optimizations.
+- **Enhanced User Experience:**
+    - Better error handling and recovery for API failures.
+
+**v0.4.4-beta**
+    - Perform Reboot after Module Update/Install via SU
+
+**v0.4.3-beta**
+    - Temporary fast Fix Crash by pressing Reboot after Module Update/Install
 
 **v0.4.2-beta**
 - **Enhanced CVE Detection & Chipset Compatibility:**
